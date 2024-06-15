@@ -640,6 +640,22 @@
                 </product-recommendations>
               {%- when 'icon-with-text' -%}
                 {% render 'icon-with-text', block: block %}
+              {%- when 'extra_info' -%}
+                {%- if block.settings.extra_info != blank -%}
+                  <div
+                    class="product__extra-info collapsed"
+                    {{ block.shopify_attributes }}
+                  >
+                    <div class="inline-richtext">
+                      {{- block.settings.extra_info -}}
+                    </div>
+                    <extra-info-button class="product__extra-info-btn">
+                      <span class="view-more">View more</span>
+                      <span class="view-less">View less</span>
+                    </extra-info-button>
+                  </div>
+
+                {%- endif -%}
             {%- endcase -%}
           {%- endfor -%}
           <a href="{{ product.url }}" class="link product__view-details animate-arrow">
@@ -940,6 +956,18 @@
       "type": "description",
       "name": "t:sections.main-product.blocks.description.name",
       "limit": 1
+    },
+    {
+      "type": "extra_info",
+      "name": "Extra Info",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "extra_info",
+          "label": "Product Extra Info"
+        }
+      ]
     },
     {
       "type": "share",
