@@ -249,3 +249,25 @@ if (!customElements.get('cart-note')) {
     }
   );
 }
+
+class CartClearButton extends HTMLElement {
+  constructor() {
+    super();
+
+    this.addEventListener('click', (event) => {
+      event.preventDefault();
+      fetch('/cart/clear.js')
+        .then((response) => response.json())
+        .then((responseJson) => {
+          if (responseJson.item_count == 0) {
+            document.querySelector('.title-wrapper-with-link').style.display = 'none';
+            document.querySelector('.cart__contents').style.display = 'none';
+            document.querySelector('.cart__footer-wrapper').style.display = 'none';
+            document.querySelector('.cart__warnings').style.display = 'block';
+            document.querySelector('.cart__warnings .cart__empty-text').style.display = 'block';
+          }
+        });
+    });
+  }
+}
+customElements.define('cart-clear-button', CartClearButton);

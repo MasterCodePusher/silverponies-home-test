@@ -9,4 +9,5 @@
 .clear-cart {
     margin-left: 20px;
     color: #ff0000;
+    cursor: pointer;
 }
