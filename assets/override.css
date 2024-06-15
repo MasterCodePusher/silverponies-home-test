@@ -5,3 +5,8 @@
 .product-grid .grid__item .card__inner {
     border: 2px solid #ff0000;
 }
+
+.clear-cart {
+    margin-left: 20px;
+    color: #ff0000;
+}
