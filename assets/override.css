@@ -1,5 +1,7 @@
-#MainContent {
-    .price {
-        color: #ff0000;
-    }
+.product .price {
+    color: #ff0000;
+}
+
+.product-grid .grid__item .card__inner {
+    border: 2px solid #ff0000;
 }
